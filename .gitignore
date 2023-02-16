@@ -1,3 +1,5 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
+*.pyc
+Library/__pycache__/BayesianNetwork.cpython-311.pyc
