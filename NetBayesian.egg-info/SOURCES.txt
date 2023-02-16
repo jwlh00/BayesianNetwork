@@ -1,0 +1,6 @@
+README.md
+setup.py
+NetBayesian.egg-info/PKG-INFO
+NetBayesian.egg-info/SOURCES.txt
+NetBayesian.egg-info/dependency_links.txt
+NetBayesian.egg-info/top_level.txt
