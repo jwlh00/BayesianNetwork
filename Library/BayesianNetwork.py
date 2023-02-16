@@ -79,3 +79,27 @@ class BayesianNetwork:
                     node_string = f"{node_string}, {parent_name}={str(parent_value)}: {node.probabilities[(True, True, parent_value)]}, not {parent_name}={str(parent_value)}: {node.probabilities[(True, False, parent_value)]}"
             node_strings.append(node_string)
         return "\n".join(node_strings)
+    
+    def IsDefined(self):
+            """
+            Checks if a Bayesian network is complete.
+            """
+            for node_name, node in self.nodes.items():
+                num_parents = len(node.parents)
+                parent_combinations = [[True, False] for _ in range(num_parents)]
+                for parents in product_cartesian(*parent_combinations):
+                    key = tuple([True] + list(parents))
+                    if key not in node.probabilities:
+                        return False
+            return True
+
+def product_cartesian(*args):
+    """
+    Returns the Cartesian product of the given sequences.
+    """
+    if not args:
+        yield []
+    else:
+        for item in args[0]:
+            for result in product_cartesian(*args[1:]):
+                yield [item] + result
