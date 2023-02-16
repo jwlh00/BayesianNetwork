@@ -29,6 +29,7 @@ burglary.set_probability({(True,): 0.001, (False,): 0.999, (True, True): 0, (Tru
 
 # Get probability of John calling given an alarm
 probability = bn.get_probability(john_calls, {"Alarm": True})
+print("Is it completely defined: ", bn.IsDefined())
 print("=================================================")
 print("Compact Network:\n", bn.compact())
 print("=================================================")
